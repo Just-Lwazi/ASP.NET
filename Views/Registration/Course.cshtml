@@ -1,0 +1,76 @@
+﻿@model School.Models.Course
+
+@{
+    ViewBag.Title = "Course";
+}
+
+<h2>Course</h2>
+
+@using (Html.BeginForm("Course", "Registration", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+    
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Program, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select Title="Program" class="form-control" data-val="true" data-val-required="Program is required." fromAdmin="True" id="Program" isEmpty="True" name="Program" placeholder="Program">
+                    <option value="">Select...</option>
+                    <option value="BCX">BCX</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Field, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select Title="Field" class="form-control" data-val="true" data-val-required="Field is required." fromAdmin="True" id="Field" isEmpty="True" name="Field" placeholder="Field">
+                    <option value="">Select...</option>
+                    <option value="Intern">Intern</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AlternativeProgram, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select Title="AlternativeProgram" class="form-control" data-val="true" data-val-required="AlternativeProgram is required." fromAdmin="True" id="AlternativeProgram" isEmpty="True" name="AlternativeProgram" placeholder="AlternativeProgram">
+                    <option value="">Select...</option>
+                    <option value="SIS">SIS</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Field, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select Title="Program" class="form-control" data-val="true" data-val-required="Program is required." fromAdmin="True" id="Program" isEmpty="True" name="Program" placeholder="Program">
+                    <option value="">Select...</option>
+                    <option value="MVC">MVC</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <p align="right">
+                    <input type="submit" value="Save/Next" class="btn btn-success btn-sm next pull-right" />
+                </p>
+            </div>
+        </div>
+
+
+
+    </div>
+}
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <form action="GuardianDetails">
+            <input type="submit" value="Back" class="btn btn-success btn-danger" />
+        </form>
+    </div>
+</div>

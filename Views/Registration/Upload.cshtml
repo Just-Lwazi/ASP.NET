@@ -1,0 +1,86 @@
+﻿@model School.Models.Upload
+
+@{ 
+    ViewBag.Title = "Upload";
+}
+
+
+
+<h2>Documentation Upload</h2>
+
+<script src="~/Scripts/upload.js"></script>
+
+@using (Html.BeginForm("Upload", "Registration", FormMethod.Post, new { enctype = "multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Upload</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>@Html.LabelFor(model => model.IdentityDocument, new { htmAttributes = new { @class = "form-control" } })</td>
+                <td><p>Upload your Identity document here</p></td>
+                <td>
+                    <div class="lifile">
+                        <div class="col-md-offset-2 col-md-">
+                            <input type="file" name="file" id="file" />
+                            <input type="submit" value="Upload" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.MatricCertificate, new { htmAttributes = new { @class = "form-control" } })</td>
+                <td><p>Upload your Matric Certificate here</p></td>
+                <td>
+                    <div class="lifile">
+                        <div class="col-md-offset-2 col-md-">
+                            <input type="file" name="file" id="file" />
+                            <input type="submit" value="Upload" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Qualifiation, new { htmAttributes = new { @class = "form-control" } })</td>
+                <td><p>Upload your Qualification here</p></td>
+                <td>
+                    <div class="lifile">
+                        <div class="col-md-offset-2 col-md-">
+                            <input type="file" name="file" id="file" />
+                            <input type="submit" value="Upload" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <p align="right">
+                <input type="submit" value="Finished" class="btn btn-success btn-sm next pull-right" />
+            </p>
+        </div>
+    </div>
+
+</div>
+}
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <form action="Medical">
+            <input type="submit" value="Back" class="btn btn-success btn-danger" />
+        </form>
+    </div>
+</div>
+
